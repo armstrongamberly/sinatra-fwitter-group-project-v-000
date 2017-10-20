@@ -29,6 +29,10 @@ class ApplicationController < Sinatra::Base
     redirect '/tweets'
   end
 
+  get '/login' do
+    erb :'/tweets'
+  end
+
 
   helpers do
     def logged_in?
