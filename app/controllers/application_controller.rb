@@ -12,6 +12,23 @@ class ApplicationController < Sinatra::Base
   get '/' do
     erb :index
   end
+
+  get '/signup' do
+    if logged_in?
+      redirect "/tweets"
+    end
+    erb :"/users/signup"
+  end
+
+  post "/signup" do
+    if params.has_value?("")
+      redirect "/signup"
+    end
+    @user = User.create(:username => params[:username], email: params[:email], :password => params[:password])
+    session[:user_id] = @user.id
+    redirect '/tweets'
+  end
+  
   get '/login' do
     if logged_in?
       redirect "/tweets/index"
