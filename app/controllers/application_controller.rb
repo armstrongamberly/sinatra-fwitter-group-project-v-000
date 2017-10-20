@@ -33,7 +33,7 @@ class ApplicationController < Sinatra::Base
     if logged_in?
       redirect "/tweets/index"
     end
-    erb :"/users/login"
+    redirect :"/users/login"
   end
 
   post "/login" do
