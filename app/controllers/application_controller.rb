@@ -46,7 +46,7 @@ class ApplicationController < Sinatra::Base
     end
   end
 
-  get '/tweets' do
+  get '/tweets/index' do
     if logged_in?
       @user = User.find(session[:user_id])
       erb :"/tweets/index"
