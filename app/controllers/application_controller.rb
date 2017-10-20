@@ -28,7 +28,7 @@ class ApplicationController < Sinatra::Base
     session[:user_id] = @user.id
     redirect '/tweets'
   end
-  
+
   get '/login' do
     if logged_in?
       redirect "/tweets/index"
